@@ -7,7 +7,7 @@ const Vibrant = require('node-vibrant')
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  const { nowplaying: album } = await fetch('https://livida.net/api/radio/').then(res => res.json())
+  const { nowplaying: { album } } = await fetch('https://livida.net/api/radio/').then(res => res.json())
   console.log(album)
   const colours = await Vibrant.from(album.art).maxColorCount(2).getPalette()
 
