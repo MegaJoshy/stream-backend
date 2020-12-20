@@ -13,9 +13,9 @@ router.get('/', async (req, res) => {
   registerFont(`${process.cwd()}/assets/OpenSans-Bold.ttf`, { family: 'OpenSans Bold' })
   registerFont(`${process.cwd()}/assets/OpenSans-Regular.ttf`, { family: 'OpenSans' })
 
-  const nowplaying = new Canvas(1920, 1080)
-    .printLinearColorGradient(960, 0, 960, 1080, [{ position: 0, color: colours.LightVibrant.getHex() }, { position: 100, color: colours.Vibrant.getHex() }])
-    .printRectangle(0, 0, 1920, 1080)
+  const nowplaying = new Canvas(1920, 540)
+    .printLinearColorGradient(960, 0, 960, 540, [{ position: 0, color: colours.LightVibrant.getHex() }, { position: 100, color: colours.Vibrant.getHex() }])
+    .printRectangle(0, 0, 1920, 540)
     .toBuffer()
   res.setHeader('Content-Type', 'image/png')
   res.end(nowplaying);
