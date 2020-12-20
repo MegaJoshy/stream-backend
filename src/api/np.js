@@ -14,9 +14,8 @@ router.get('/', async (req, res) => {
   registerFont(`${process.cwd()}/assets/OpenSans-Regular.ttf`, { family: 'OpenSans' })
 
   const nowplaying = new Canvas(1920, 1080)
-    .stroke()
     .printLinearColorGradient(960, 0, 960, 1080, [{ position: 0, color: colours.LightVibrant.getHex() }, { position: 100, color: colours.Vibrant.getHex() }])
-    .fill()
+    .printRectangle(0, 0, 1920, 1080)
     .toBuffer()
   res.setHeader('Content-Type', 'image/png')
   res.end(nowplaying);
