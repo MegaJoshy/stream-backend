@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   const { nowplaying: album } = await fetch('https://livida.net/api/radio/').then(res => res.json())
+  console.log(album)
   const colours = await Vibrant.from(album.art).maxColorCount(2).getPalette()
 
   registerFont(`${process.cwd()}/assets/OpenSans-Bold.ttf`, { family: 'OpenSans Bold' })
